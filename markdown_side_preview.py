@@ -16,8 +16,11 @@ import sublime_plugin
 
 try:
     from .lib.md_to_html import markdown_to_html, wrap_document
-except ImportError:  # running outside Sublime package context
-    from lib.md_to_html import markdown_to_html, wrap_document
+except ImportError:
+    try:
+        from MarkdownSidePreview.lib.md_to_html import markdown_to_html, wrap_document
+    except ImportError:  # running outside Sublime package context
+        from lib.md_to_html import markdown_to_html, wrap_document
 
 # view.id() → HtmlSheet
 _PREVIEW_SHEETS: Dict[int, sublime.HtmlSheet] = {}
