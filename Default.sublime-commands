@@ -6,5 +6,9 @@
   {
     "caption": "Markdown Side Preview: Refresh",
     "command": "markdown_side_preview_refresh"
+  },
+  {
+    "caption": "Markdown Side Preview: Toggle (Window)",
+    "command": "markdown_side_preview_toggle_window"
   }
 ]

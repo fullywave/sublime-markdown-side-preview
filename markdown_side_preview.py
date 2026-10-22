@@ -239,12 +239,56 @@ def schedule_refresh(view: sublime.View) -> None:
     timer.start()
 
 
+
+def _debug(msg: str) -> None:
+    try:
+        with open("/tmp/msp-debug.log", "a", encoding="utf-8") as f:
+            f.write(msg + "\n")
+    except Exception:
+        pass
+
+
+def _active_markdown_view(window: sublime.Window) -> Optional[sublime.View]:
+    if window is None:
+        return None
+    view = window.active_view()
+    if view is not None and _is_markdown_view(view):
+        return view
+    for v in window.views():
+        if _is_markdown_view(v):
+            return v
+    return None
+
+
+class MarkdownSidePreviewToggleWindowCommand(sublime_plugin.WindowCommand):
+    """CLI-friendly toggle: works with `subl --command markdown_side_preview_toggle_window`."""
+
+    def run(self) -> None:
+        view = _active_markdown_view(self.window)
+        _debug("toggle_window view=%s name=%s" % (
+            None if view is None else view.id(),
+            None if view is None else (view.file_name() or ""),
+        ))
+        if view is None:
+            sublime.status_message("Markdown Side Preview: open a .md file first")
+            return
+        self.window.focus_view(view)
+        vid = view.id()
+        if vid in _PREVIEW_SHEETS:
+            close_preview(view)
+            _debug("closed preview %s" % vid)
+        else:
+            open_or_update_preview(view)
+            _debug("opened preview %s sheets=%s" % (vid, list(_PREVIEW_SHEETS.keys())))
+
+
 class MarkdownSidePreviewToggleCommand(sublime_plugin.TextCommand):
     def is_enabled(self) -> bool:
         return _is_markdown_view(self.view)
 
     def run(self, edit: sublime.Edit) -> None:
         vid = self.view.id()
+        _debug("toggle_text view=%s" % vid)
         if vid in _PREVIEW_SHEETS:
             close_preview(self.view)
         else:
