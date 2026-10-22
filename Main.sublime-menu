@@ -1,0 +1,44 @@
+[
+  {
+    "id": "tools",
+    "children": [
+      {
+        "caption": "Markdown Side Preview",
+        "children": [
+          {
+            "caption": "Toggle Side Preview",
+            "command": "markdown_side_preview_toggle"
+          },
+          {
+            "caption": "Refresh Preview",
+            "command": "markdown_side_preview_refresh"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "Markdown Side Preview",
+            "children": [
+              {
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/MarkdownSidePreview/MarkdownSidePreview.sublime-settings",
+                  "default": "{\n\t$0\n}\n"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

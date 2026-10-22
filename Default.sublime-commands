@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Markdown Side Preview: Toggle",
+    "command": "markdown_side_preview_toggle"
+  },
+  {
+    "caption": "Markdown Side Preview: Refresh",
+    "command": "markdown_side_preview_refresh"
+  }
+]

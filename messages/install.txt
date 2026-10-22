@@ -1,0 +1,10 @@
+Markdown Side Preview installed.
+
+Open a .md file, then:
+  Tools → Markdown Side Preview → Toggle Side Preview
+  or Command Palette → "Markdown Side Preview: Toggle"
+  or Ctrl+Alt+M (Windows/Linux) / Cmd+Alt+M (macOS)
+
+Preview opens in a Sublime HtmlSheet side column (not a browser).
+
+Settings: Preferences → Package Settings → Markdown Side Preview

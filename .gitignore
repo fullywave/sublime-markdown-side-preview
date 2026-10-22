@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+.DS_Store
+.cache/
+*.sublime-workspace
+.coverage
+.pytest_cache/
+dist/
+*.egg-info/

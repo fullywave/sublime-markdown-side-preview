@@ -1,0 +1,14 @@
+{
+  // Debounce delay for live refresh while typing (milliseconds)
+  "debounce_ms": 300,
+
+  // "light" or "dark"
+  "theme": "light",
+
+  // When closing the last preview sheet, restore single-column layout
+  "restore_single_column": true,
+
+  // Attempt to resolve relative image paths via file:// URLs
+  // (HtmlSheet support varies by Sublime build; may show alt text only)
+  "resolve_relative_images": true
+}
